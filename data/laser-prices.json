@@ -1,0 +1,80 @@
+{
+  "_note": "Laser hair removal prices. All prices are PER SESSION when booking a pack of 6, 8 or 10. After editing, run: python3 tools/build.py",
+  "packs": [6, 8, 10],
+  "validity": "Packs of 6 and 8 sessions are valid for 12 months from the date of purchase; packs of 10 sessions are valid for 18 months.",
+  "sections": [
+    {
+      "id": "ladies-areas",
+      "title": "Ladies — single areas",
+      "group": "ladies",
+      "kind": "areas",
+      "rows": [
+        {"name": "Underarms", "prices": [38, 35, 32]},
+        {"name": "Bikini line", "prices": [45, 42, 39]},
+        {"name": "High bikini", "prices": [57, 54, 50]},
+        {"name": "Brazilian / Hollywood", "prices": [69, 65, 60]},
+        {"name": "Small areas", "detail": "cheeks, upper lip, forehead, jawline, ears, front neck, back of neck, nipples, navel line, hands, feet", "prices": [28, 26, 24]},
+        {"name": "Medium areas", "detail": "lower arms, upper arms, chest, abdomen, lower back, upper back, shoulders, buttock", "prices": [55, 52, 49]},
+        {"name": "Lower legs / Upper legs", "prices": [72, 69, 66]},
+        {"name": "Full arms", "prices": [76, 73, 70]},
+        {"name": "Extra large areas", "detail": "full legs, full front, full back", "prices": [92, 89, 85]},
+        {"name": "Full face", "prices": [64, 61, 58]}
+      ]
+    },
+    {
+      "id": "ladies-packages",
+      "title": "Ladies — packages",
+      "group": "ladies",
+      "kind": "packages",
+      "rows": [
+        {"id": "L1", "name": "Underarms + Hollywood or Brazilian", "prices": [75, 70, 65]},
+        {"id": "L2", "name": "Underarms + lower legs", "prices": [95, 90, 85]},
+        {"id": "L3", "name": "Underarms + Hollywood or Brazilian + lower or upper legs", "prices": [115, 110, 105]},
+        {"id": "L4", "name": "Underarms + Hollywood or Brazilian + full legs", "prices": [130, 125, 120]},
+        {"id": "L5", "name": "Full arms + underarms + Hollywood or Brazilian + full legs", "prices": [162, 157, 152]},
+        {"id": "L6", "name": "Full body with face", "detail": "excluding back, front and shoulders", "prices": [170, 165, 160]},
+        {"id": "L7", "name": "Full body — face to toes", "prices": [205, 200, 195]}
+      ]
+    },
+    {
+      "id": "gents-areas",
+      "title": "Gents — single areas",
+      "group": "gents",
+      "kind": "areas",
+      "rows": [
+        {"name": "Small areas", "detail": "cheeks, upper lip, forehead, jawline, ears, front neck, back of neck, nipples, navel line, hands, feet", "prices": [32, 30, 28]},
+        {"name": "Underarms", "prices": [43, 40, 36]},
+        {"name": "Chest", "prices": [65, 62, 58]},
+        {"name": "Medium areas", "detail": "lower arms, upper arms, abdomen, lower back, upper back, shoulders", "prices": [62, 59, 55]},
+        {"name": "Large areas", "detail": "lower legs, upper legs, full arms", "prices": [86, 83, 79]},
+        {"name": "Extra large areas", "detail": "full legs, full front, full back", "prices": [104, 100, 96]}
+      ]
+    },
+    {
+      "id": "gents-packages",
+      "title": "Gents — packages",
+      "group": "gents",
+      "kind": "packages",
+      "rows": [
+        {"id": "G1", "name": "Full back & shoulders", "prices": [115, 110, 105]},
+        {"id": "G2", "name": "Full back, shoulders & neck", "prices": [120, 115, 110]},
+        {"id": "G3", "name": "Chest & abdomen", "prices": [90, 85, 80]},
+        {"id": "G4", "name": "Chest & upper back", "prices": [95, 90, 85]},
+        {"id": "G5", "name": "Full back, full front & shoulders", "prices": [150, 145, 140]},
+        {"id": "G6", "name": "Full body", "detail": "excluding intimate areas", "prices": [190, 185, 180]}
+      ]
+    }
+  ],
+  "waxing_highlights": {
+    "_note": "Taken from the Treatwell profile (popular services). Full menu stays on Treatwell.",
+    "rows": [
+      {"name": "Eyebrow wax", "duration": "15 min", "price": "£14"},
+      {"name": "Brazilian (hot wax)", "duration": "30 min", "price": "£44"},
+      {"name": "Hollywood, full leg & underarm", "duration": "1 hr 30 min", "price": "£83"},
+      {"name": "Eye trio — brow & lash tint + brow wax", "duration": "45 min", "price": "£35"},
+      {"name": "Men — chest & stomach", "duration": "35 min", "price": "£45"},
+      {"name": "Men — back & shoulders", "duration": "40 min", "price": "£48"},
+      {"name": "Patch test", "duration": "5 min", "price": "Free"}
+    ]
+  }
+}
