@@ -374,7 +374,7 @@ def page_index():
       <div class="step reveal"><span class="num">2</span><div class="ico-badge">{icon("drop-half-bottom")}</div><h3>Patch test</h3><p>A quick test on a small area to check how your skin responds, at no cost.</p></div>
       <div class="step reveal"><span class="num">3</span><div class="ico-badge">{icon("calendar-check")}</div><h3>Your course</h3><p>Choose 6, 8 or 10 sessions. Pay by card in the salon, or online with card or Klarna.</p></div>
     </div>
-    <div class="btn-row center" style="margin-top:48px;justify-content:center"><a class="btn" href="consultation.html">Book free consultation</a><a class="btn ghost" href="laser.html">See laser prices</a></div>
+    <div class="btn-row center" style="margin-top:48px;justify-content:center"><a class="btn" data-link="whatsapp" data-wa-text="Hi Wax Point, I'd like to book a free laser consultation." href="#">{icon("whatsapp-logo")} WhatsApp us</a><a class="btn ghost" data-link="phone" href="#">{icon("phone")} Call</a><a class="btn ghost" href="laser.html">See laser prices</a></div>
   </div>
 </section>
 
@@ -430,8 +430,8 @@ def page_laser():
         "Laser hair removal",
         "Laser prices", "per session",
         "All prices are per session when you book a course of 6, 8 or 10. The longer the course, the lower the price per session.",
-        '<a class="btn" href="consultation.html">Book free consultation</a>'
-        f'<a class="btn ghost" data-link="whatsapp" data-wa-text="Hi Wax Point, I\'d like to ask about laser hair removal." href="#">{icon("whatsapp-logo")} Ask a question</a>',
+        f'<a class="btn" data-link="whatsapp" data-wa-text="Hi Wax Point, I\'d like to book a free laser consultation." href="#">{icon("whatsapp-logo")} WhatsApp us</a>'
+        f'<a class="btn ghost" data-link="phone" href="#">{icon("phone")} Call</a>',
         "laser_page",
     )
     body = hero + f"""
@@ -475,8 +475,9 @@ def page_consultation():
         "Free · about 20 minutes",
         "Laser consultation", "your first step",
         "Your consultation and patch test are free. Filling in the questionnaire before your visit saves time and lets us check that laser is safe for you.",
-        '<a class="btn" data-link="form" href="#">Fill in the form</a><a class="btn ghost" data-link="book" href="#">Book consultation</a>'
-        f'<p class="small muted" data-missing="form" style="margin-top:10px;flex-basis:100%">Our online form is coming soon. <a data-link="whatsapp" href="#">Message us on WhatsApp</a> to arrange your consultation.</p>',
+        f'<a class="btn" data-link="whatsapp" data-wa-text="Hi Wax Point, I\'d like to book a free laser consultation." href="#">{icon("whatsapp-logo")} WhatsApp us</a>'
+        f'<a class="btn ghost" data-link="phone" href="#">{icon("phone")} Call</a>'
+        '<a class="btn ghost" data-link="form" href="#">Fill in the form</a>',
         "consult_page",
     )
     body = hero + f"""
