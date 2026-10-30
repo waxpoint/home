@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DATA = json.loads((ROOT / "data" / "laser-prices.json").read_text())
 PHOTOS = json.loads((ROOT / "data" / "photos.json").read_text())
+REVIEWS = json.loads((ROOT / "data" / "reviews.json").read_text())
 
 SALON = {
     "name": "Wax Point",
@@ -21,16 +22,17 @@ SALON = {
     "lat": 51.5106891,
     "lng": -0.321669,
     "site": "https://waxpoint.co.uk",  # change to the real domain once bought
-    # Hours as listed on Treatwell (Oct 2026). Google shows different hours — keep both in sync.
+    # Hours from the Google Business Profile (30 Oct 2026). Keep Treatwell in sync.
     "hours": [
         ("Monday", None, None),
-        ("Tuesday", "10:30", "19:00"),
-        ("Wednesday", "11:00", "19:00"),
-        ("Thursday", "10:30", "19:00"),
-        ("Friday", "10:30", "19:00"),
-        ("Saturday", "10:00", "17:00"),
+        ("Tuesday", "11:00", "18:00"),
+        ("Wednesday", "11:00", "18:00"),
+        ("Thursday", "11:00", "19:00"),
+        ("Friday", "11:00", "18:00"),
+        ("Saturday", "10:00", "16:00"),
         ("Sunday", None, None),
     ],
+    "google_place_id": "ChIJ3zCccYANdkgRGkfYpVD734M",
 }
 
 e = html.escape
@@ -172,6 +174,7 @@ def layout(page_id, title, description, body, path):
         <li><a data-link="phone" href="#">{SALON['phone_display']}</a></li>
         <li><a data-link="instagram" href="#">Instagram</a></li>
         <li><a data-link="treatwell" href="#">Treatwell</a></li>
+        <li><a href="https://search.google.com/local/writereview?placeid={SALON['google_place_id']}" target="_blank" rel="noopener">Review us on Google</a></li>
       </ul>
     </div>
     <div>
@@ -258,6 +261,53 @@ def page_hero(eyebrow, title, script, lead, buttons, photo_key):
       <div class="btn-row">{buttons}</div>
     </div>
     <div class="reveal">{photo(photo_key, 560, 640, "wide")}</div>
+  </div>
+</section>"""
+
+
+def reviews_section():
+    R = REVIEWS
+    awards = "".join(
+        f'<div class="award">{icon("trophy" if a["title"] == "High Five" else "medal")}'
+        f'<span><strong>{e(a["title"])} {e(a["years"])}</strong>{e(a["note"])}</span></div>'
+        for a in R["awards"]
+    )
+    slides = "".join(
+        f'<figure class="review" role="group" aria-roledescription="slide" aria-label="Review {i} of {len(R["reviews"])}">'
+        f'{icon("quotes", "ico q")}<blockquote>{e(r["text"])}</blockquote>'
+        f'<figcaption><span><strong>{e(r["name"])}</strong> · {e(r["treatment"])}</span>'
+        f'<span class="verified">{icon("seal-check")} Verified Treatwell review</span></figcaption></figure>'
+        for i, r in enumerate(R["reviews"], 1)
+    )
+    return f"""
+<section class="white reviews" id="reviews" aria-label="Client reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Treatwell venue awards</span>
+      <h2>Loved by<span class="script">our clients</span></h2>
+      <p class="lead center">{stars()} <strong>{R["rating"]}</strong> from {R["count"]} verified Treatwell reviews</p>
+    </div>
+    <div class="awards reveal">{awards}</div>
+    <div class="carousel reveal" data-carousel>
+      <div class="track" tabindex="0" aria-label="Reviews, scroll sideways">{slides}</div>
+      <div class="carousel-nav">
+        <button class="nav-btn" data-prev aria-label="Previous review">{icon("caret-left")}</button>
+        <div class="dots" aria-hidden="true"></div>
+        <button class="nav-btn" data-next aria-label="Next review">{icon("caret-right")}</button>
+      </div>
+    </div>
+    <div class="center reveal" style="margin-top:36px"><a class="link" data-link="treatwell" href="#">Read all {R["count"]} reviews on Treatwell {icon("arrow-right")}</a></div>
+  </div>
+</section>"""
+
+
+def google_review_bar():
+    url = f"https://search.google.com/local/writereview?placeid={SALON['google_place_id']}"
+    return f"""
+<section class="review-bar" aria-label="Leave a Google review">
+  <div class="wrap">
+    <div class="rb-text">{icon("google-logo", "ico g")}<span><strong>Enjoyed your visit?</strong> A quick Google review helps others find us.</span></div>
+    <a class="btn" href="{url}" target="_blank" rel="noopener">{icon("star-fill")} Leave a Google review</a>
   </div>
 </section>"""
 
@@ -349,7 +399,9 @@ def page_index():
   </div>
 </section>
 
-<section class="white" id="waxing-menu">
+{reviews_section()}
+
+<section class="tint" id="waxing-menu">
   <div class="wrap split">
     <div class="reveal">
       <span class="eyebrow">Waxing menu</span>
@@ -417,6 +469,7 @@ def page_index():
     <iframe class="map reveal" title="Map to Wax Point, West Ealing" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="{map_src}"></iframe>
   </div>
 </section>
+{google_review_bar()}
 """
     return layout("index", "Wax Point — Waxing & Laser Hair Removal in West Ealing",
                   "Beauty, waxing and laser hair removal in West Ealing, London W13. Free laser consultation and patch test, 5.0 rating from 1,000+ Treatwell reviews.",

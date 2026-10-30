@@ -1,0 +1,19 @@
+{
+  "_note": "Verified Treatwell reviews, quoted word for word from treatwell.co.uk/place/wax-point-1 (October 2026). Only add reviews copied exactly from Treatwell or Google. Then run: python3 tools/build.py",
+  "rating": "5.0",
+  "count": "1,054",
+  "awards": [
+    {"title": "Top Rated", "years": "2020 – 2026", "note": "Seven years running"},
+    {"title": "High Five", "years": "2026", "note": "Treatwell Venue Award"}
+  ],
+  "reviews": [
+    {"name": "Karolina", "treatment": "Ladies' waxing", "text": "I’ve been going to Emilia for my wax for a few years now and it’s always a great service."},
+    {"name": "Nadia", "treatment": "Bikini waxing", "text": "Excellent service, Emilia makes sure you are comfortable and does a great job!"},
+    {"name": "Kayla", "treatment": "Hollywood waxing", "text": "Clean, efficient and very friendly. Will be a regular customer from now on"},
+    {"name": "Victoria", "treatment": "Brazilian waxing", "text": "Thorough wax as ever and painless as poss"},
+    {"name": "Bethan", "treatment": "Bikini waxing", "text": "Always good! Have been coming back so long I have run out of ways to review!"},
+    {"name": "Rukia", "treatment": "Ladies' waxing", "text": "Excellent work as always. Strongly recommend"},
+    {"name": "Michaela", "treatment": "Bikini waxing", "text": "Always a great experience with Emilia, I will be back"},
+    {"name": "Ella", "treatment": "Brazilian waxing", "text": "It’s always a great experience with Emilia"}
+  ]
+}

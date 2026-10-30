@@ -85,3 +85,50 @@
 
   var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
 })();
+
+// Reviews carousel: native scroll-snap (swipe/trackpad keep their own momentum), arrows, dots, gentle autoplay
+(function () {
+  document.querySelectorAll("[data-carousel]").forEach(function (root) {
+    var track = root.querySelector(".track"), slides = track.children, dots = root.querySelector(".dots");
+    if (!slides.length) return;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function step() { return slides.length > 1 ? slides[1].offsetLeft - slides[0].offsetLeft : track.clientWidth; }
+    function perView() { return Math.max(1, Math.round(track.clientWidth / step())); }
+    function pages() { return Math.max(1, slides.length - perView() + 1); }
+    function current() { return Math.round(track.scrollLeft / step()); }
+    function go(i) {
+      var n = pages(); i = (i + n) % n;
+      track.scrollTo({ left: i * step(), behavior: reduce ? "auto" : "smooth" });
+    }
+    function drawDots() {
+      var n = pages(); dots.innerHTML = "";
+      for (var i = 0; i < n; i++) dots.appendChild(document.createElement("span"));
+      mark();
+    }
+    function mark() {
+      var c = Math.min(current(), pages() - 1);
+      Array.prototype.forEach.call(dots.children, function (d, i) { d.classList.toggle("on", i === c); });
+    }
+    root.querySelector("[data-prev]").addEventListener("click", function () { go(current() - 1); pause(); });
+    root.querySelector("[data-next]").addEventListener("click", function () { go(current() + 1); pause(); });
+    track.addEventListener("scroll", function () { window.requestAnimationFrame(mark); }, { passive: true });
+    track.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight") { e.preventDefault(); go(current() + 1); pause(); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(current() - 1); pause(); }
+    });
+    window.addEventListener("resize", drawDots);
+    drawDots();
+
+    // Autoplay only while untouched; any interaction hands control back to the reader
+    var timer = null, stopped = reduce;
+    function tick() { if (!stopped && !document.hidden) go(current() + 1); }
+    function start() { if (!stopped && !timer) timer = setInterval(tick, 6000); }
+    function pause() { stopped = true; clearInterval(timer); timer = null; }
+    ["pointerdown", "wheel", "touchstart", "focusin"].forEach(function (ev) { root.addEventListener(ev, pause, { passive: true }); });
+    root.addEventListener("mouseenter", function () { clearInterval(timer); timer = null; });
+    root.addEventListener("mouseleave", start);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) { en[0].isIntersecting ? start() : (clearInterval(timer), timer = null); }, { threshold: 0.4 }).observe(root);
+    } else start();
+  });
+})();
