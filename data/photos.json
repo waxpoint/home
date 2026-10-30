@@ -1,13 +1,13 @@
 {
   "_note": "Salon photos live in assets/photos/ (each with a -sm.jpg smaller copy). Others are free Unsplash images (unsplash.com/license). 'pos' sets which part of the photo stays visible when it is cropped into a frame. After editing, run: python3 tools/build.py",
-  "hero":        {"local": "assets/photos/smooth-legs.jpg", "pos": "42% 50%", "alt": "Smooth, hair-free legs raised against a white background"},
+  "hero":        {"local": "assets/photos/smooth-underarm.jpg", "pos": "50% 20%", "alt": "Woman with arms raised showing smooth, hair-free underarms"},
   "hero_inset":  {"local": "assets/photos/aloe-gel.jpg", "pos": "50% 60%", "alt": "Soothing aloe vera gel in a glass jar beside fresh aloe leaves"},
   "waxing":      {"local": "assets/photos/waxing-legs.jpg", "pos": "50% 50%", "alt": "Therapist applying warm wax to a client's leg with a spatula"},
   "laser":       {"local": "assets/photos/laser-legs.jpg", "pos": "62% 60%", "alt": "Laser hair removal treatment on a client's lower leg"},
   "brows":       {"local": "assets/photos/brow-wax.jpg", "pos": "50% 40%", "alt": "Eyebrow wax being applied with a wooden spatula"},
   "studio":      {"local": "assets/photos/emilia.jpg", "pos": "50% 0%", "alt": "Emilia, therapist and owner of Wax Point"},
   "studio_inset":{"local": "assets/photos/aloe-gel.jpg", "pos": "50% 60%", "alt": "Soothing aloe vera gel in a glass jar beside fresh aloe leaves"},
-  "good_to_know":{"local": "assets/photos/smooth-underarm.jpg", "pos": "50% 20%", "alt": "Woman with arms raised showing smooth, hair-free underarms"},
+  "good_to_know":{"local": "assets/photos/smooth-legs.jpg", "pos": "42% 50%", "alt": "Smooth, hair-free legs raised against a white background"},
   "laser_page":  {"local": "assets/photos/laser-underarm.jpg", "pos": "55% 55%", "alt": "Laser hair removal on a client's underarm"},
   "consult_page":{"local": "assets/photos/laser-legs.jpg", "pos": "60% 55%", "alt": "Laser hair removal treatment on a client's lower leg"},
   "care_page":   {"local": "assets/photos/waxing-legs.jpg", "pos": "50% 50%", "alt": "Therapist applying warm wax to a client's leg with a spatula"}
