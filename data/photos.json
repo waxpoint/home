@@ -1,6 +1,6 @@
 {
   "_note": "Salon photos live in assets/photos/ (each with a -sm.jpg smaller copy). Others are free Unsplash images (unsplash.com/license). 'pos' sets which part of the photo stays visible when it is cropped into a frame. After editing, run: python3 tools/build.py",
-  "hero":        {"id": "1544717304-a2db4a7b16ee", "alt": "Woman wrapped in a white towel against a light studio background", "credit": "Icons8 Team"},
+  "hero":        {"local": "assets/photos/smooth-legs.jpg", "pos": "42% 50%", "alt": "Smooth, hair-free legs raised against a white background"},
   "hero_inset":  {"local": "assets/photos/aloe-gel.jpg", "pos": "50% 60%", "alt": "Soothing aloe vera gel in a glass jar beside fresh aloe leaves"},
   "waxing":      {"local": "assets/photos/waxing-legs.jpg", "pos": "50% 50%", "alt": "Therapist applying warm wax to a client's leg with a spatula"},
   "laser":       {"local": "assets/photos/laser-legs.jpg", "pos": "62% 60%", "alt": "Laser hair removal treatment on a client's lower leg"},
