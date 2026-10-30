@@ -156,7 +156,7 @@ def layout(page_id, title, description, body, path):
   </div>
 </header>
 <div class="scrim"></div>
-<nav class="sheet" id="sheet" aria-label="Menu">{sheet_links}<a class="btn" data-link="book" href="#">Book an appointment</a></nav>
+<nav class="sheet" id="sheet" aria-label="Menu">{sheet_links}<a class="btn" data-link="book" href="#">Book online</a><a class="btn ghost" data-link="whatsapp" href="#" style="margin-top:10px">{icon("whatsapp-logo")} Book via WhatsApp</a></nav>
 <main id="main">
 {body}
 </main>
@@ -330,8 +330,8 @@ def page_index():
       <h1 class="display">Smooth skin,<span class="script">the gentle way</span></h1>
       <p class="lead">Over 15 years of experience, techniques designed to keep waxing as pain-free as possible, and a spotless, calm studio five minutes from West Ealing station.</p>
       <div class="btn-row">
-        <a class="btn" data-link="book" href="#">Book an appointment</a>
-        <a class="btn ghost" href="laser.html">Laser prices</a>
+        <a class="btn" data-link="book" href="#">Book online</a>
+        <a class="btn ghost" data-link="whatsapp" href="#">{icon("whatsapp-logo")} WhatsApp</a>
       </div>
       <div class="rating">{stars()} <span><strong>5.0</strong> from 1,000+ Treatwell reviews</span></div>
     </div>
@@ -374,7 +374,7 @@ def page_index():
         <span class="meta">{icon("eye")} Brows &amp; lashes</span>
         <h3>Brows</h3>
         <p>Brow shaping, tints and the eye trio — brow wax with brow and lash tint — for a polished, low-maintenance look.</p>
-        <a class="link" data-link="book" href="#">Book on Treatwell {icon("arrow-right")}</a>
+        <a class="link" data-link="book" href="#">Book now {icon("arrow-right")}</a>
       </article>
     </div>
   </div>
@@ -406,8 +406,8 @@ def page_index():
     <div class="reveal">
       <span class="eyebrow">Waxing menu</span>
       <h2>Popular<span class="script">treatments</span></h2>
-      <p class="muted">A few favourites. Every area and waxing package is on our Treatwell menu, where you can book instantly.</p>
-      <div class="btn-row" style="margin-top:28px"><a class="btn" data-link="book" href="#">Full menu &amp; booking</a></div>
+      <p class="muted">A few favourites. See every area and waxing package and book instantly online, or message us on WhatsApp.</p>
+      <div class="btn-row" style="margin-top:28px"><a class="btn" data-link="book" href="#">Full menu &amp; booking</a><a class="btn ghost" data-link="whatsapp" href="#">{icon("whatsapp-logo")} WhatsApp</a></div>
     </div>
     <ul class="menu-list reveal">{wax}</ul>
   </div>
@@ -433,7 +433,7 @@ def page_index():
     <div class="reveal">{photo("good_to_know", 560, 700, "tall")}</div>
     <div class="reveal">
       <span class="eyebrow">Good to know</span>
-      <div class="info"><h4>{icon("calendar-blank")} Appointments</h4><p>Book online any time through Treatwell, or message us on WhatsApp. If you need to cancel or reschedule, please let us know as early as you can so we can offer your slot to someone else.</p></div>
+      <div class="info"><h4>{icon("calendar-blank")} Appointments</h4><p>Book online any time, or message us on WhatsApp Business. If you need to cancel or reschedule, please let us know as early as you can so we can offer your slot to someone else.</p></div>
       <div class="info"><h4>{icon("credit-card")} Paying for laser</h4><p>Pay for your course by card in the salon, or online by card, Apple Pay, Google Pay or Klarna — always after your free patch test.</p></div>
       <div class="info"><h4>{icon("hourglass-medium")} Course validity</h4><p>{e(DATA['validity'])}</p></div>
       <a class="link" href="aftercare.html">Before &amp; aftercare {icon("arrow-right")}</a>
@@ -461,7 +461,7 @@ def page_index():
       <div class="contact-line">{icon("clock")}<span>Opening hours</span></div>
       {hours_list()}
       <div class="btn-row">
-        <a class="btn" data-link="book" href="#">Book now</a>
+        <a class="btn" data-link="book" href="#">Book online</a>
         <a class="btn ghost" data-link="whatsapp" href="#">{icon("whatsapp-logo")} WhatsApp</a>
         <a class="btn ghost" data-link="phone" href="#">{icon("phone")} Call</a>
       </div>

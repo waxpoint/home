@@ -4,10 +4,10 @@
   Leave a value empty ("") and that button / section is hidden.
 */
 window.WAXPOINT = {
-  treatwell: "https://www.treatwell.co.uk/place/wax-point-1/",
-  // Treatwell "Book Now" widget link for your own website (0% commission).
-  // Get it in Treatwell Connect → Marketing → Booking widget. Until then the public profile is used.
-  treatwellWidget: "",
+  treatwell: "https://www.treatwell.co.uk/place/wax-point-1/",   // public profile: used only for reviews
+  // Treatwell booking widget — every "Book" button on the site opens this (0% commission on these bookings).
+  // If Treatwell Connect gives you a different widget link, paste it here.
+  treatwellWidget: "https://widget.treatwell.co.uk/place/wax-point-1/",
   whatsapp: "447702014136",
   phone: "+447702014136",
   instagram: "https://www.instagram.com/waxpoint.london/",
