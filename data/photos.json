@@ -1,0 +1,14 @@
+{
+  "_note": "Photos are free-licence images from Unsplash (unsplash.com/license), loaded straight from Unsplash. To swap one, replace its id with another Unsplash photo id, or put your own photo in assets/photos/ and use \"local\": \"assets/photos/name.jpg\". Then run: python3 tools/build.py",
+  "hero":        {"id": "1544717304-a2db4a7b16ee", "alt": "Woman wrapped in a white towel against a light studio background", "credit": "Icons8 Team"},
+  "hero_inset":  {"id": "1748543668676-ea8241cb3886", "alt": "Skincare products with leaves on a light background", "credit": "ibnu ihza"},
+  "waxing":      {"id": "1561228987-8e7379dde477", "alt": "Close-up of a hand with a gold ring resting on smooth skin at the neck", "credit": "Angélica Echeverry"},
+  "laser":       {"id": "1700760933574-9f0f4ea9aa3b", "alt": "Laser hair removal treatment on a leg resting on a white towel", "credit": "Farhad Ibrahimzade"},
+  "brows":       {"id": "1670201203116-26644750a726", "alt": "Woman with her hand resting on her face, soft natural light", "credit": "Laura Jaeger"},
+  "studio":      {"id": "1748543668751-902d6461890d", "alt": "Skincare products with green leaves on a beige surface", "credit": "ibnu ihza"},
+  "studio_inset":{"id": "1598440947619-2c35fc9aa908", "alt": "Skincare products on a white striped towel", "credit": "michela ampolo"},
+  "good_to_know":{"id": "1778358293493-c98b92ea4129", "alt": "Close-up of smooth skin at the collarbone and neck", "credit": "Felicia Varzari"},
+  "laser_page":  {"id": "1785861433534-8cd4c7b994fa", "alt": "Therapist performing laser treatment on a client's arm", "credit": "Sum Sum"},
+  "consult_page":{"id": "1581182800629-7d90925ad072", "alt": "Woman in a white top, soft studio light", "credit": "Fleur Kaan"},
+  "care_page":   {"id": "1748543668643-1ada33167539", "alt": "Cosmetic serums and gels on a soft neutral background", "credit": "ibnu ihza"}
+}
