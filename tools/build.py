@@ -333,9 +333,8 @@ def page_index():
 
 <section class="tint">
   <div class="wrap split">
-    <div class="stack left reveal">
+    <div class="reveal">
       {photo("studio", 560, 700, "tall")}
-      {photo("studio_inset", 240, 300, "inset")}
     </div>
     <div class="reveal">
       <span class="eyebrow">Your therapist</span>
