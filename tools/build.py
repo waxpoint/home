@@ -507,15 +507,25 @@ def page_laser():
 
 <section>
   <div class="wrap" style="max-width:820px">
-    <div class="section-head reveal"><span class="eyebrow">Questions</span><h2>Laser<span class="script">FAQ</span></h2></div>
-    <details><summary>How many sessions will I need? {icon("x")}</summary><p>Most people need a course of 6–10 sessions, spaced several weeks apart, because hair grows in cycles. We'll recommend a course at your consultation.</p></details>
-    <details><summary>Does it hurt? {icon("x")}</summary><p>Most clients describe a quick snapping or warm sensation. Sensitivity varies by area and we adjust settings to keep you comfortable.</p></details>
-    <details><summary>Can I shave between sessions? {icon("x")}</summary><p>Yes, shaving is fine. Please don't wax, pluck, thread or epilate during your course, as laser needs the hair root in place.</p></details>
-    <details><summary>Is laser suitable for everyone? {icon("x")}</summary><p>Not always. Some medications, skin conditions, pregnancy and recent sun exposure can mean we need to wait or adjust treatment. That's what the consultation and patch test are for.</p></details>
-    <details><summary>How long is my course valid? {icon("x")}</summary><p>{e(DATA['validity'])}</p></details>
+    <div class="section-head reveal"><span class="eyebrow">Questions</span><h2>Laser FAQ<span class="script">answered</span></h2></div>
+    <details><summary>Does laser hair removal hurt? {icon("plus")}</summary><p>Most clients describe a quick warm snap, a bit like a rubber band flicked on the skin. It's very tolerable, sensitivity varies by area, and we adjust the settings to keep you comfortable.</p></details>
+    <details><summary>Is laser hair removal safe? {icon("plus")}</summary><p>Yes. Every course starts with a consultation and a patch test, so we can check your skin and medical history first. Side effects are usually mild and short-lived, such as redness or small bumps that settle within a day or two.</p></details>
+    <details><summary>Can I have laser if I have PCOS? {icon("plus")}</summary><p>Yes, many clients with PCOS use laser to reduce hormone-related hair growth. Because new hair can keep developing, you may need extra sessions and occasional top-ups. We'll talk it through at your consultation.</p></details>
+    <details><summary>How many sessions will I need? {icon("plus")}</summary><p>Most people need a course of 6–10 sessions, spaced several weeks apart, because hair grows in cycles. We'll recommend the right course at your consultation.</p></details>
+    <details><summary>Can I sunbathe or use a sunbed during my course? {icon("plus")}</summary><p>Please avoid sun, sunbeds and fake tan on the treatment area for 2–4 weeks before each session and for two weeks after. Tanned skin is more likely to react, so we may need to postpone a session. Use SPF 30+ on treated areas in between.</p></details>
+    <details><summary>Do I need to shave before my appointment? {icon("plus")}</summary><p>Yes. Shave the area 24 hours before, using a clean, sharp razor, and skip creams and deodorant on the day. Shaving between sessions is fine, but please don't wax, pluck, thread or epilate during your course, as laser needs the hair root in place.</p></details>
+    <details><summary>Can I have laser while taking medication? {icon("plus")}</summary><p>Often, yes. Some medicines, including certain antibiotics, acne treatments and anything that makes skin sensitive to light, mean we need to wait or check with your GP first. Always tell us about new medication, even mid-course.</p></details>
+    <details><summary>Does laser work on all hair colours? {icon("plus")}</summary><p>Laser works best on dark hair, because it targets the pigment in the hair. Light blonde, red, grey and white hair respond much less, so we'll be honest with you at your consultation about the results you can expect.</p></details>
+    <details><summary>Is laser suitable for everyone? {icon("plus")}</summary><p>Not always. Some skin conditions, pregnancy, recent sun exposure and certain medications can mean we need to wait or adjust treatment. That's what the free consultation and patch test are for.</p></details>
+    <details><summary>How long is my course valid? {icon("plus")}</summary><p>{e(DATA['validity'])}</p></details>
   </div>
 </section>
 """
+    import re as _re
+    qa = _re.findall(r"<summary>(.*?) <svg.*?</summary><p>(.*?)</p>", body, _re.S)
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": html.unescape(q), "acceptedAnswer": {"@type": "Answer", "text": html.unescape(ans)}} for q, ans in qa]}
+    body += f'\n<script type="application/ld+json">{json.dumps(faq_ld)}</script>'
     return layout("laser", "Laser Hair Removal Prices — Wax Point, West Ealing",
                   "Laser hair removal prices for ladies and gents in West Ealing. Courses of 6, 8 or 10 sessions, money-saving packages, free consultation and patch test.",
                   body, "laser.html")
