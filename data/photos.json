@@ -4,7 +4,7 @@
   "hero_inset":  {"local": "assets/photos/aloe-bowl.jpg", "pos": "50% 50%", "alt": "Fresh aloe vera gel in a wooden bowl with a spoon and cut aloe leaves"},
   "waxing":      {"local": "assets/photos/waxing-legs.jpg", "pos": "50% 50%", "alt": "Therapist applying warm wax to a client's leg with a spatula"},
   "laser":       {"local": "assets/photos/laser-legs.jpg", "pos": "62% 60%", "alt": "Laser hair removal treatment on a client's lower leg"},
-  "brows":       {"local": "assets/photos/brow-wax.jpg", "pos": "50% 40%", "alt": "Eyebrow wax being applied with a wooden spatula"},
+  "brows":       {"local": "assets/photos/brows-split.jpg", "pos": "50% 50%", "alt": "Face split in half showing natural brows on one side and shaped, tinted brows on the other"},
   "studio":      {"local": "assets/photos/emilia.jpg", "pos": "50% 0%", "alt": "Emilia, therapist and owner of Wax Point"},
   "studio_inset":{"local": "assets/photos/aloe-gel.jpg", "pos": "50% 60%", "alt": "Soothing aloe vera gel in a glass jar beside fresh aloe leaves"},
   "good_to_know":{"local": "assets/photos/smooth-legs.jpg", "pos": "42% 50%", "alt": "Smooth, hair-free legs raised against a white background"},
