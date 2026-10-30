@@ -285,9 +285,8 @@ def page_index():
       </div>
       <div class="rating">{stars()} <span><strong>5.0</strong> from 1,000+ Treatwell reviews</span></div>
     </div>
-    <div class="stack reveal">
+    <div class="reveal">
       {photo("hero", 600, 750, "tall", eager=True)}
-      {photo("hero_inset", 260, 325, "inset")}
     </div>
   </div>
 </section>
