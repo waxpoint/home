@@ -64,14 +64,18 @@ def photo(key, w, h, cls="", eager=False):
     p = PHOTOS[key]
     alt = e(p["alt"])
     if p.get("local"):
-        src = p["local"]
-        srcset = ""
+        full = p["local"]
+        small = full.replace(".jpg", "-sm.jpg")
+        has_small = (ROOT / small).exists()
+        src = small if (has_small and w <= 450) else full
+        srcset = f' srcset="{small} 700w, {full} 1400w" sizes="(max-width: 980px) 90vw, {w}px"' if has_small else ""
     else:
         base = f"https://images.unsplash.com/photo-{p['id']}?auto=format&fit=crop&crop=entropy&q=78"
         src = f"{base}&w={w}&h={h}"
         srcset = f' srcset="{base}&w={w}&h={h} 1x, {base}&w={w*2}&h={h*2} 2x"'
+    pos = f' style="object-position:{p["pos"]}"' if p.get("pos") else ""
     loading = 'fetchpriority="high"' if eager else 'loading="lazy" decoding="async"'
-    return f'<div class="frame {cls}"><img src="{src}"{srcset} alt="{alt}" width="{w}" height="{h}" {loading}></div>'
+    return f'<div class="frame {cls}"><img src="{src}"{srcset} alt="{alt}" width="{w}" height="{h}" {loading}{pos}></div>'
 
 
 def stars():
