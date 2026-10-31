@@ -1,0 +1,13 @@
+# Files Cloudflare must NOT publish on the website (they stay in the repo)
+.claude
+.git
+.github
+.gitignore
+.assetsignore
+tools
+data
+README.md
+*.py
+wrangler.toml
+wrangler.jsonc
+wrangler.json
