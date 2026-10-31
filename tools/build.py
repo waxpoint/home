@@ -87,7 +87,7 @@ def stars():
 # ---------- layout ----------
 
 def layout(page_id, title, description, body, path):
-    left = [("laser", "laser.html", "Laser"), ("consultation", "consultation.html", "Consultation"), ("aftercare", "aftercare.html", "Aftercare")]
+    left = [("laser", "laser.html", "Laser"), ("consultation", "consultation.html", "Patch test"), ("aftercare", "aftercare.html", "Aftercare")]
     right = [("visit", "index.html#visit", "Visit")]
 
     def links(items):
@@ -181,7 +181,7 @@ def layout(page_id, title, description, body, path):
       <h4>Clients</h4>
       <ul>
         <li><a href="laser.html">Laser prices &amp; packages</a></li>
-        <li><a href="consultation.html">Laser consultation</a></li>
+        <li><a href="consultation.html">Free laser patch test</a></li>
         <li><a href="aftercare.html">Before &amp; aftercare</a></li>
         <li><a href="privacy.html">Privacy &amp; credits</a></li>
       </ul>
@@ -420,11 +420,11 @@ def page_index():
       <h2>Your laser<span class="script">journey</span></h2>
     </div>
     <div class="steps">
-      <div class="step reveal"><span class="num">1</span><div class="ico-badge">{icon("clipboard-text")}</div><h3>Consultation</h3><p>A short health questionnaire and a chat about your skin, hair and goals. Always free.</p></div>
-      <div class="step reveal"><span class="num">2</span><div class="ico-badge">{icon("drop-half-bottom")}</div><h3>Patch test</h3><p>A quick test on a small area to check how your skin responds, at no cost.</p></div>
-      <div class="step reveal"><span class="num">3</span><div class="ico-badge">{icon("calendar-check")}</div><h3>Your course</h3><p>Choose 6, 8 or 10 sessions. Pay by card in the salon, or online with card or Klarna.</p></div>
+      <div class="step reveal"><span class="num">1</span><div class="ico-badge">{icon("clipboard-text")}</div><h3>Book your patch test</h3><p>Book the <strong>Free Laser Patch Test</strong> online in a couple of taps. It includes a short consultation about your skin, hair and goals.</p></div>
+      <div class="step reveal"><span class="num">2</span><div class="ico-badge">{icon("drop-half-bottom")}</div><h3>Patch test</h3><p>Emilia tests a small area to check how your skin responds and recommends the right course. No cost, no obligation.</p></div>
+      <div class="step reveal"><span class="num">3</span><div class="ico-badge">{icon("calendar-check")}</div><h3>Your course</h3><p>Choose 6, 8 or 10 sessions and Emilia books your laser appointments with you directly, right after your patch test.</p></div>
     </div>
-    <div class="btn-row center" style="margin-top:48px;justify-content:center"><a class="btn" data-link="whatsapp" data-wa-text="Hi Wax Point, I'd like to book a free laser consultation." href="#">{icon("whatsapp-logo")} WhatsApp us</a><a class="btn ghost" data-link="phone" href="#">{icon("phone")} Call</a><a class="btn ghost" href="laser.html">See laser prices</a></div>
+    <div class="btn-row center" style="margin-top:48px;justify-content:center"><a class="btn" data-link="book" href="#">Book free patch test</a><a class="btn ghost" data-link="whatsapp" data-wa-text="Hi Wax Point, I'd like to ask about the free laser patch test." href="#">{icon("whatsapp-logo")} WhatsApp</a><a class="btn ghost" href="laser.html">See laser prices</a></div>
   </div>
 </section>
 
@@ -434,7 +434,7 @@ def page_index():
     <div class="reveal">
       <span class="eyebrow">Good to know</span>
       <div class="info"><h4>{icon("calendar-blank")} Appointments</h4><p>Book online any time, or message us on WhatsApp Business. If you need to cancel or reschedule, please let us know as early as you can so we can offer your slot to someone else.</p></div>
-      <div class="info"><h4>{icon("credit-card")} Paying for laser</h4><p>Pay for your course by card in the salon, or online by card, Apple Pay, Google Pay or Klarna — always after your free patch test.</p></div>
+      <div class="info"><h4>{icon("credit-card")} Paying for laser</h4><p>Book the free patch test online first. Emilia then books your course with you directly, and you can pay by card in the salon or online by card, Apple Pay, Google Pay or Klarna.</p></div>
       <div class="info"><h4>{icon("hourglass-medium")} Course validity</h4><p>{e(DATA['validity'])}</p></div>
       <a class="link" href="aftercare.html">Before &amp; aftercare {icon("arrow-right")}</a>
     </div>
@@ -481,14 +481,14 @@ def page_laser():
         "Laser hair removal",
         "Laser prices", "per session",
         "All prices are per session when you book a course of 6, 8 or 10. The longer the course, the lower the price per session.",
-        f'<a class="btn" data-link="whatsapp" data-wa-text="Hi Wax Point, I\'d like to book a free laser consultation." href="#">{icon("whatsapp-logo")} WhatsApp us</a>'
-        f'<a class="btn ghost" data-link="phone" href="#">{icon("phone")} Call</a>',
+        '<a class="btn" data-link="book" href="#">Book free patch test</a>'
+        f'<a class="btn ghost" data-link="whatsapp" data-wa-text="Hi Wax Point, I\'d like to ask about the free laser patch test." href="#">{icon("whatsapp-logo")} WhatsApp</a>',
         "laser_page",
     )
     body = hero + f"""
 <section class="white" style="padding-top:72px">
   <div class="wrap">
-    <div class="note">{icon("first-aid")}<span><strong>Consultation first.</strong> Every laser course starts with a free consultation and patch test, so we can make sure treatment is safe and right for you. Please only pay for a course after your patch test.</span></div>
+    <div class="note">{icon("first-aid")}<span><strong>Patch test first.</strong> Every laser course starts with a free patch test and consultation, so we can make sure treatment is safe and right for you. Book the <strong>Free Laser Patch Test</strong> online; Emilia then books your course with you directly at your visit.</span></div>
     <div class="note" data-pay-note>{icon("credit-card")}<span><strong>Paying online.</strong> “Pay for course” opens a secure checkout where you can pay by card, Apple Pay, Google Pay or Klarna. Klarna options depend on eligibility and are explained by Klarna at checkout.</span></div>
 
     <div data-tabs style="margin-top:48px">
@@ -533,11 +533,11 @@ def page_laser():
 
 def page_consultation():
     hero = page_hero(
-        "Free · about 20 minutes",
-        "Laser consultation", "your first step",
-        "Your consultation and patch test are free. Filling in the questionnaire before your visit saves time and lets us check that laser is safe for you.",
-        f'<a class="btn" data-link="whatsapp" data-wa-text="Hi Wax Point, I\'d like to book a free laser consultation." href="#">{icon("whatsapp-logo")} WhatsApp us</a>'
-        f'<a class="btn ghost" data-link="phone" href="#">{icon("phone")} Call</a>'
+        "Free · no obligation",
+        "Laser patch test", "your first step",
+        "Your patch test and consultation are free. Book the Free Laser Patch Test online, and after your visit Emilia books your laser course with you directly.",
+        '<a class="btn" data-link="book" href="#">Book free patch test</a>'
+        f'<a class="btn ghost" data-link="whatsapp" data-wa-text="Hi Wax Point, I\'d like to ask about the free laser patch test." href="#">{icon("whatsapp-logo")} WhatsApp</a>'
         '<a class="btn ghost" data-link="form" href="#">Fill in the form</a>',
         "consult_page",
     )
@@ -545,9 +545,9 @@ def page_consultation():
 <section class="white">
   <div class="wrap">
     <div class="steps">
-      <div class="step reveal"><span class="num">1</span><div class="ico-badge">{icon("clipboard-text")}</div><h3>Questionnaire</h3><p>About 5 minutes: your skin, medication, health and recent sun exposure.</p></div>
-      <div class="step reveal"><span class="num">2</span><div class="ico-badge">{icon("drop-half-bottom")}</div><h3>Patch test</h3><p>We talk through your goals, check your skin and hair, and test a small area.</p></div>
-      <div class="step reveal"><span class="num">3</span><div class="ico-badge">{icon("calendar-check")}</div><h3>Your plan</h3><p>We recommend the right course and you choose how to pay.</p></div>
+      <div class="step reveal"><span class="num">1</span><div class="ico-badge">{icon("clipboard-text")}</div><h3>Book online</h3><p>Choose <strong>Free Laser Patch Test</strong> in our online booking and pick a time that suits you.</p></div>
+      <div class="step reveal"><span class="num">2</span><div class="ico-badge">{icon("drop-half-bottom")}</div><h3>Patch test</h3><p>We go through a short health questionnaire, check your skin and hair, and test a small area.</p></div>
+      <div class="step reveal"><span class="num">3</span><div class="ico-badge">{icon("calendar-check")}</div><h3>Book your course</h3><p>Emilia recommends the right course and books your sessions with you directly at your visit.</p></div>
     </div>
   </div>
 </section>
@@ -582,8 +582,8 @@ def page_consultation():
   </div>
 </section>
 """
-    return layout("consultation", "Free Laser Consultation — Wax Point, West Ealing",
-                  "Book a free laser hair removal consultation and patch test at Wax Point, West Ealing. Fill in the questionnaire online before your visit.",
+    return layout("consultation", "Free Laser Patch Test — Wax Point, West Ealing",
+                  "Book a free laser hair removal patch test and consultation at Wax Point, West Ealing, online in a couple of taps.",
                   body, "consultation.html")
 
 
