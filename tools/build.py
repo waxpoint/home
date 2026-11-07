@@ -327,7 +327,7 @@ def page_index():
   <div class="wrap split">
     <div class="reveal">
       <span class="eyebrow">West Ealing · Since 2019</span>
-      <h1 class="display">Smooth skin,<span class="script">the gentle way</span></h1>
+      <h1 class="display">Waxing &amp; laser<span class="script">in West Ealing</span></h1>
       <p class="lead">Over 15 years of experience, techniques designed to keep waxing as pain-free as possible, and a spotless, calm studio five minutes from West Ealing station.</p>
       <div class="btn-row">
         <a class="btn" data-link="book" href="#">Book online</a>
