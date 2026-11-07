@@ -296,6 +296,8 @@ details p { margin: 0 0 22px; color: var(--ink-2); }
 @media (max-width: 600px) {
   .wrap { padding: 0 18px; }
   .hero { padding: 40px 0 80px; }
+  .hero .frame.tall { aspect-ratio: 5 / 4; }
+  .hero .frame img { object-position: 50% 20%; }
   .values { grid-template-columns: 1fr; }
   .values div + div { border-left: 0; border-top: 1px solid var(--line); }
   .values div { padding: 20px 18px; }
