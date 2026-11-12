@@ -22,7 +22,7 @@ SALON = {
     "lat": 51.5106891,
     "lng": -0.321669,
     "site": "https://home.milka666-1987.workers.dev",  # live address; change to the real domain once it is bought and connected
-    # Hours from the Google Business Profile (30 Oct 2026). Keep Treatwell in sync.
+    # Hours from the Google Business Profile (30 Oct 2026); matched against Treatwell on 12 Nov 2026. Keep both in sync.
     "hours": [
         ("Monday", None, None),
         ("Tuesday", "11:00", "18:00"),
@@ -87,8 +87,8 @@ def stars():
 # ---------- layout ----------
 
 def layout(page_id, title, description, body, path):
-    left = [("laser", "laser.html", "Laser"), ("consultation", "consultation.html", "Patch test"), ("aftercare", "aftercare.html", "Aftercare")]
-    right = [("visit", "index.html#visit", "Visit")]
+    left = [("laser", "laser.html", "Laser"), ("waxing", "index.html#waxing-menu", "Waxing"), ("consultation", "consultation.html", "Patch test"), ("aftercare", "aftercare.html", "Aftercare")]
+    right = [("visit", "index.html#visit", "Visit us")]
 
     def links(items):
         return "".join(
@@ -321,7 +321,7 @@ def page_index():
     )
     lowest = min(min(r["prices"]) for s in DATA["sections"] for r in s["rows"])
     n_pkgs = sum(len(s["rows"]) for s in DATA["sections"] if s["kind"] == "packages")
-    map_src = "https://maps.google.com/maps?q=Wax%20Point%2C%2036-38%20Broadway%2C%20London%20W13%200SU&z=16&output=embed"
+    map_src = "https://maps.google.com/maps?q=Wax%20Point%2C%2036-38%20Broadway%2C%20London%20W13%200SU&amp;z=16&amp;output=embed"
     body = f"""
 <section class="hero">
   <div class="wrap split">
@@ -434,7 +434,6 @@ def page_index():
     <div class="reveal">
       <span class="eyebrow">Good to know</span>
       <div class="info"><h4>{icon("calendar-blank")} Appointments</h4><p>Book online any time, or message us on WhatsApp Business. If you need to cancel or reschedule, please let us know as early as you can so we can offer your slot to someone else.</p></div>
-      <div class="info"><h4>{icon("credit-card")} Paying for laser</h4><p>Book the free patch test online first. Emilia then books your course with you directly, and you can pay by card in the salon or online by card, Apple Pay, Google Pay or Klarna.</p></div>
       <div class="info"><h4>{icon("hourglass-medium")} Course validity</h4><p>{e(DATA['validity'])}</p></div>
       <a class="link" href="aftercare.html">Before &amp; aftercare {icon("arrow-right")}</a>
     </div>
@@ -489,6 +488,7 @@ def page_laser():
 <section class="white" style="padding-top:72px">
   <div class="wrap">
     <div class="note">{icon("first-aid")}<span><strong>Patch test first.</strong> Every laser course starts with a free patch test and consultation, so we can make sure treatment is safe and right for you. Book the <strong>Free Laser Patch Test</strong> online; Emilia then books your course with you directly at your visit.</span></div>
+    <div class="note">{icon("hand-coins")}<span><strong>Pay as you go.</strong> Single sessions without a course are charged at the 6-session price per session + 20%.</span></div>
     <div class="note" data-pay-note>{icon("credit-card")}<span><strong>Paying online.</strong> “Pay for course” opens a secure checkout where you can pay by card, Apple Pay, Google Pay or Klarna. Klarna options depend on eligibility and are explained by Klarna at checkout.</span></div>
 
     <div data-tabs style="margin-top:48px">
