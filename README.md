@@ -8,7 +8,7 @@ Edit `config.js`. Any empty value hides its button automatically.
 - `treatwellWidget` – your Treatwell **website booking widget** link (0% commission). Find it in Treatwell Connect.
 - `instagram` – full Instagram profile URL.
 - `consultationForm` – Tally form link.
-- `payLinks` – Stripe Payment Links per course, e.g. `"L1-6": "https://buy.stripe.com/..."` (Ladies package 1, 6 sessions). IDs: `L1`–`L7`, `G1`–`G6`; sizes `6`, `8`, `10`.
+- `payLinks` – Stripe Payment Links per course, e.g. `"L1-6": "https://buy.stripe.com/..."` (Ladies package 1, 6 sessions). IDs: `L1`–`L8`, `G1`–`G5`; sizes `6`, `8`, `10`.
 
 ## Change prices
 Edit `data/laser-prices.json`, then run `python3 tools/build.py` and commit.
