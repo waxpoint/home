@@ -104,9 +104,16 @@ def layout(page_id, title, description, body, path):
         "@context": "https://schema.org",
         "@type": "BeautySalon",
         "name": SALON["name"],
-        "description": "Beauty, waxing and laser hair removal in West Ealing, London.",
+        "description": "Waxing and laser hair removal salon in West Ealing, London W13, for ladies and gents.",
         "foundingDate": "2019",
-        "sameAs": ["https://www.instagram.com/waxpoint.london/", "https://www.treatwell.co.uk/place/wax-point-1/"],
+        "sameAs": ["https://www.instagram.com/waxpoint.london/", "https://www.facebook.com/waxpointlondon/", "https://www.treatwell.co.uk/place/wax-point-1/"],
+        "areaServed": [{"@type": "Place", "name": n} for n in ["West Ealing", "Ealing", "Ealing Broadway", "Hanwell", "Northfields", "Acton", "Greenford", "Southall"]],
+        "knowsAbout": ["Waxing", "Hot wax", "Brazilian wax", "Hollywood wax", "Men's waxing", "Eyebrow wax", "Laser hair removal"],
+        "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Treatments", "itemListElement": [
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Waxing for ladies and gents"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Laser hair removal"}, "priceSpecification": {"@type": "PriceSpecification", "minPrice": min(min(r["prices"]) for s_ in DATA["sections"] for r in s_["rows"]), "priceCurrency": "GBP"}},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Free laser patch test"}, "price": 0, "priceCurrency": "GBP"},
+            {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Eyebrow wax and tint"}}]},
         "image": SALON["site"] + "/assets/og-image.jpg",
         "logo": SALON["site"] + "/assets/icon-512.png",
         "url": SALON["site"],
@@ -470,15 +477,15 @@ def page_index():
 </section>
 {google_review_bar()}
 """
-    return layout("index", "Wax Point — Waxing & Laser Hair Removal in West Ealing",
-                  "Beauty, waxing and laser hair removal in West Ealing, London W13. Free laser consultation and patch test, 5.0 rating from 1,000+ Treatwell reviews.",
+    return layout("index", "Waxing & Laser Hair Removal in Ealing W13 | Wax Point",
+                  "Hot wax, Brazilian & Hollywood waxing and laser hair removal in West Ealing, W13. Ladies & gents, free laser patch test, 5.0 from 1,000+ reviews. Book online.",
                   body, "index.html")
 
 
 def page_laser():
     hero = page_hero(
         "Laser hair removal",
-        "Laser prices", "per session",
+        "Laser hair removal", "prices per session",
         "All prices are per session when you book a course of 6, 8 or 10. The longer the course, the lower the price per session.",
         '<a class="btn" data-link="book" href="#">Book free patch test</a>'
         f'<a class="btn ghost" data-link="whatsapp" data-wa-text="Hi Wax Point, I\'d like to ask about the free laser patch test." href="#">{icon("whatsapp-logo")} WhatsApp</a>',
@@ -526,8 +533,8 @@ def page_laser():
     faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": html.unescape(q), "acceptedAnswer": {"@type": "Answer", "text": html.unescape(ans)}} for q, ans in qa]}
     body += f'\n<script type="application/ld+json">{json.dumps(faq_ld)}</script>'
-    return layout("laser", "Laser Hair Removal Prices — Wax Point, West Ealing",
-                  "Laser hair removal prices for ladies and gents in West Ealing. Courses of 6, 8 or 10 sessions, money-saving packages, free consultation and patch test.",
+    return layout("laser", "Laser Hair Removal Ealing — Prices & Packages | Wax Point",
+                  "Laser hair removal in Ealing from £{} per session. Ladies & gents, courses of 6, 8 or 10, money-saving packages and a free patch test first.".format(min(min(r["prices"]) for s_ in DATA["sections"] for r in s_["rows"])),
                   body, "laser.html")
 
 
@@ -582,7 +589,7 @@ def page_consultation():
   </div>
 </section>
 """
-    return layout("consultation", "Free Laser Patch Test — Wax Point, West Ealing",
+    return layout("consultation", "Free Laser Hair Removal Patch Test, Ealing | Wax Point",
                   "Book a free laser hair removal patch test and consultation at Wax Point, West Ealing, online in a couple of taps.",
                   body, "consultation.html")
 
@@ -665,8 +672,8 @@ def page_aftercare():
   </div>
 </section>
 """
-    return layout("aftercare", "Waxing & Laser Aftercare — Wax Point",
-                  "Before and aftercare advice for waxing and laser hair removal from Wax Point, West Ealing.",
+    return layout("aftercare", "Waxing & Laser Aftercare Advice | Wax Point Ealing",
+                  "How to prepare for waxing and laser hair removal, and how to care for your skin afterwards. Advice from Wax Point, West Ealing.",
                   body, "aftercare.html")
 
 
@@ -717,7 +724,9 @@ if __name__ == "__main__":
     for name, fn in PAGES.items():
         (ROOT / name).write_text(fn())
         print("built", name)
-    urls = "".join(f"<url><loc>{SALON['site']}/{'' if n == 'index.html' else n}</loc></url>" for n in PAGES)
+    import datetime as _dt
+    today = _dt.date.today().isoformat()
+    urls = "".join(f"<url><loc>{SALON['site']}/{'' if n == 'index.html' else n}</loc><lastmod>{today}</lastmod></url>" for n in PAGES if n != "privacy.html")
     (ROOT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SALON['site']}/sitemap.xml\n")
     print("built sitemap.xml, robots.txt")
