@@ -412,7 +412,7 @@ def page_index():
   <div class="wrap split">
     <div class="reveal">
       <span class="eyebrow">Waxing menu</span>
-      <h2>Popular<span class="script">treatments</span></h2>
+      <h2>Popular<span class="script">waxing</span></h2>
       <p class="muted">A few favourites. See every area and waxing package and book instantly online, or message us on WhatsApp.</p>
       <div class="btn-row" style="margin-top:28px"><a class="btn" data-link="book" href="#">Full menu &amp; booking</a><a class="btn ghost" data-link="whatsapp" href="#">{icon("whatsapp-logo")} WhatsApp</a></div>
     </div>
