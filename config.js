@@ -10,7 +10,7 @@ window.WAXPOINT = {
   treatwellWidget: "https://widget.treatwell.co.uk/place/wax-point-1/",
   whatsapp: "447702014136",
   phone: "+447702014136",
-  instagram: "https://www.instagram.com/waxpoint.london/",
+  instagram: "https://www.instagram.com/waxpointealing/",
   consultationForm: "",     // Tally form link, e.g. "https://tally.so/r/xxxxxx"
 
   /*
