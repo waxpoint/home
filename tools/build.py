@@ -21,7 +21,7 @@ SALON = {
     "phone_display": "07702 014136",
     "lat": 51.5106891,
     "lng": -0.321669,
-    "site": "https://home.milka666-1987.workers.dev",  # live address; change to the real domain once it is bought and connected
+    "site": "https://waxpoint.co.uk",
     # Hours from the Google Business Profile (30 Oct 2026); matched against Treatwell on 12 Nov 2026. Keep both in sync.
     "hours": [
         ("Monday", None, None),
