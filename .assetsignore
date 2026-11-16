@@ -11,3 +11,5 @@ README.md
 wrangler.toml
 wrangler.jsonc
 wrangler.json
+.taste-skill
+node_modules
