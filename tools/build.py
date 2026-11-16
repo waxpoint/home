@@ -106,7 +106,7 @@ def layout(page_id, title, description, body, path):
         "name": SALON["name"],
         "description": "Waxing and laser hair removal salon in West Ealing, London W13, for ladies and gents.",
         "foundingDate": "2019",
-        "sameAs": ["https://www.instagram.com/waxpointealing/", "https://www.facebook.com/waxpointlondon/", "https://www.treatwell.co.uk/place/wax-point-1/"],
+        "sameAs": ["https://www.instagram.com/waxpoint.ealing/", "https://www.facebook.com/waxpointlondon/", "https://www.treatwell.co.uk/place/wax-point-1/"],
         "areaServed": [{"@type": "Place", "name": n} for n in ["West Ealing", "Ealing", "Ealing Broadway", "Hanwell", "Northfields", "Acton", "Greenford", "Southall"]],
         "knowsAbout": ["Waxing", "Hot wax", "Brazilian wax", "Hollywood wax", "Men's waxing", "Eyebrow wax", "Laser hair removal"],
         "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Treatments", "itemListElement": [
@@ -451,7 +451,7 @@ def page_index():
   <div class="wrap reveal">
     <div class="ico-badge">{icon("instagram-logo")}</div>
     <span class="eyebrow">Follow along</span>
-    <h2>@waxpointealing</h2>
+    <h2>@waxpoint.ealing</h2>
     <p class="lead center" style="margin:0 auto 30px">Studio news, offers and last-minute appointments.</p>
     <a class="btn ghost" data-link="instagram" href="#">Follow on Instagram</a>
   </div>
