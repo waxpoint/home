@@ -334,8 +334,8 @@ def page_index():
   <div class="wrap split">
     <div class="reveal">
       <span class="eyebrow">West Ealing · Since 2019</span>
-      <h1 class="display">Waxing &amp; laser<span class="script">in West Ealing</span></h1>
-      <p class="lead">Over 15 years of experience, techniques designed to keep waxing as pain-free as possible, and a spotless, calm studio five minutes from West Ealing station.</p>
+      <h1 class="display">Waxing &amp; laser<span class="script">in Ealing</span></h1>
+      <p class="lead">Over 18 years of experience, techniques designed to keep waxing as pain-free as possible, and a spotless, calm studio five minutes from West Ealing station.</p>
       <div class="btn-row">
         <a class="btn" data-link="book" href="#">Book online</a>
         <a class="btn ghost" data-link="whatsapp" href="#">{icon("whatsapp-logo")} WhatsApp</a>
@@ -349,7 +349,7 @@ def page_index():
 </section>
 
 <div class="values">
-  <div>{icon("seal-check")}<span><strong>15+ years</strong>of expert hands</span></div>
+  <div>{icon("seal-check")}<span><strong>18+ years</strong>of expert hands</span></div>
   <div>{icon("hand-heart")}<span><strong>Gentle technique</strong>as pain-free as possible</span></div>
   <div>{icon("shield-check")}<span><strong>Spotless studio</strong>hygiene first, always</span></div>
   <div>{icon("star")}<span><strong>5.0 rating</strong>from 1,000+ reviews</span></div>
@@ -366,7 +366,7 @@ def page_index():
         {photo("waxing", 420, 420, "square")}
         <span class="meta">{icon("drop")} Hot &amp; strip wax</span>
         <h3>Waxing</h3>
-        <p>Face and body waxing for ladies and gents, from brows to Hollywood, with techniques refined over 15 years.</p>
+        <p>Face and body waxing for ladies and gents, from brows to Hollywood, with techniques refined over 18 years.</p>
         <a class="link" href="#waxing-menu">See prices {icon("arrow-right")}</a>
       </article>
       <article class="card-t reveal">
@@ -395,7 +395,7 @@ def page_index():
     <div class="reveal">
       <span class="eyebrow">Your therapist</span>
       <h2>Meet Emilia</h2>
-      <p class="lead">Wax Point is run by Emilia, a waxing specialist with over 15 years of experience. Her own techniques keep treatments quick, thorough and as comfortable as possible — which is why so many clients have stayed with her for years.</p>
+      <p class="lead">Wax Point is run by Emilia, a waxing specialist with over 18 years of experience. Her own techniques keep treatments quick, thorough and as comfortable as possible — which is why so many clients have stayed with her for years.</p>
       <ul class="ico-list" style="margin:28px 0 34px">
         <li>{icon("check-circle")}<span>Hot wax for sensitive and intimate areas</span></li>
         <li>{icon("check-circle")}<span>Free patch test before your first treatment</span></li>
