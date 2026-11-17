@@ -519,7 +519,7 @@ def page_laser():
     <details><summary>Is laser hair removal safe? {icon("plus")}</summary><p>Yes. Every course starts with a consultation and a patch test, so we can check your skin and medical history first. Side effects are usually mild and short-lived, such as redness or small bumps that settle within a day or two.</p></details>
     <details><summary>Can I have laser if I have PCOS? {icon("plus")}</summary><p>Yes, many clients with PCOS use laser to reduce hormone-related hair growth. Because new hair can keep developing, you may need extra sessions and occasional top-ups. We'll talk it through at your consultation.</p></details>
     <details><summary>How many sessions will I need? {icon("plus")}</summary><p>Most people need a course of 6–10 sessions, spaced several weeks apart, because hair grows in cycles. We'll recommend the right course at your consultation.</p></details>
-    <details><summary>Can I sunbathe or use a sunbed during my course? {icon("plus")}</summary><p>Please avoid sun, sunbeds and fake tan on the treatment area for 2–4 weeks before each session and for two weeks after. Tanned skin is more likely to react, so we may need to postpone a session. Use SPF 30+ on treated areas in between.</p></details>
+    <details><summary>Can I sunbathe or use a sunbed during my course? {icon("plus")}</summary><p>Please avoid sun, sunbeds and fake tan on the treatment area for 2–4 weeks before each session and for two weeks after. Tanned skin is more likely to react, so we may need to postpone a session. Use SPF 50+ on treated areas in between.</p></details>
     <details><summary>Do I need to shave before my appointment? {icon("plus")}</summary><p>Yes. Shave the area 24 hours before, using a clean, sharp razor, and skip creams and deodorant on the day. Shaving between sessions is fine, but please don't wax, pluck, thread or epilate during your course, as laser needs the hair root in place.</p></details>
     <details><summary>Can I have laser while taking medication? {icon("plus")}</summary><p>Often, yes. Some medicines, including certain antibiotics, acne treatments and anything that makes skin sensitive to light, mean we need to wait or check with your GP first. Always tell us about new medication, even mid-course.</p></details>
     <details><summary>Does laser work on all hair colours? {icon("plus")}</summary><p>Laser works best on dark hair, because it targets the pigment in the hair. Light blonde, red, grey and white hair respond much less, so we'll be honest with you at your consultation about the results you can expect.</p></details>
@@ -653,7 +653,7 @@ def page_aftercare():
         ("hand-heart", "Don't scrub or exfoliate the area."),
       ])}</div>
       <div class="care reveal"><h3>{icon("sun")} During your course</h3>{care_list([
-        ("sun", "Use SPF 30+ on treated areas exposed to the sun, and avoid sunbeds completely."),
+        ("sun", "Use SPF 50+ on treated areas exposed to the sun, and avoid sunbeds completely."),
         ("waves", "Shaving is fine. Treated hairs may shed for 1–3 weeks; this is normal."),
         ("shower", "Exfoliate gently after the first week to help shedding hairs come out."),
         ("calendar-check", "Keep to your session schedule for the best results."),
