@@ -84,6 +84,22 @@ def stars():
     return '<span class="stars" aria-label="5 out of 5 stars">' + icon("star-fill") * 5 + "</span>"
 
 
+# ---------- clean URLs ----------
+# Cloudflare serves laser.html at /laser (and index.html at /) and redirects the .html
+# address there. Canonicals, the sitemap and internal links must use the final address,
+# otherwise Google reports "Page with redirect" / "Alternate page with proper canonical".
+
+def clean_url(name):
+    return "/" if name == "index.html" else "/" + name[:-5]
+
+
+_PAGE_LINK = re.compile(r'href="(index|laser|consultation|aftercare|privacy)\.html(#[^"]*)?"')
+
+
+def clean_links(html_text):
+    return _PAGE_LINK.sub(lambda m: f'href="{clean_url(m.group(1) + ".html")}{m.group(2) or ""}"', html_text)
+
+
 # ---------- layout ----------
 
 def layout(page_id, title, description, body, path):
@@ -129,7 +145,7 @@ def layout(page_id, title, description, body, path):
         "openingHoursSpecification": hours_ld,
         "priceRange": "££",
     }
-    canonical = SALON["site"] + ("/" if path == "index.html" else "/" + path)
+    canonical = SALON["site"] + clean_url(path)
     return f"""<!doctype html>
 <html lang="en-GB">
 <head>
@@ -722,11 +738,11 @@ PAGES = {
 
 if __name__ == "__main__":
     for name, fn in PAGES.items():
-        (ROOT / name).write_text(fn())
+        (ROOT / name).write_text(clean_links(fn()))
         print("built", name)
     import datetime as _dt
     today = _dt.date.today().isoformat()
-    urls = "".join(f"<url><loc>{SALON['site']}/{'' if n == 'index.html' else n}</loc><lastmod>{today}</lastmod></url>" for n in PAGES if n != "privacy.html")
+    urls = "".join(f"<url><loc>{SALON['site']}{clean_url(n)}</loc><lastmod>{today}</lastmod></url>" for n in PAGES if n != "privacy.html")
     (ROOT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')
     (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SALON['site']}/sitemap.xml\n")
     print("built sitemap.xml, robots.txt")
